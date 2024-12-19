@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>עטרה - קריאייטיב ופרסומות לרדיו</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 10px;
+        }
+        h1 {
+            margin: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .ad {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .ad button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .ad button:hover {
+            background-color: #45a049;
+        }
+        .audio-player {
+            margin-top: 10px;
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>עטרה - קריאייטיב ופרסומות לרדיו</h1>
+        <p>האזינו לפרסומות הנבחרות ותתרשמו מהכישרון!</p>
+    </header>
+    <div class="container">
+        <div class="ad">
+            <h2>אושר עד</h2>
+            <p>פרסומת מבריקה ושובת לב עבור רשת 'אושר עד'.</p>
+            <button onclick="playAudio('./audio/osher-ad.mp3', this)">האזינו לפרסומת</button>
+            <audio class="audio-player" controls></audio>
+        </div>
+        <div class="ad">
+            <h2>מרכז הישיגים</h2>
+            <p>קריאייטיב מרגש שמשקף הצלחה אמיתית.</p>
+            <button onclick="playAudio('./audio/hesegim.mp3', this)">האזינו לפרסומת</button>
+            <audio class="audio-player" controls></audio>
+        </div>
+        <div class="ad">
+            <h2>בזק</h2>
+            <p>חווית תקשורת חדשנית ומלאת השראה.</p>
+            <button onclick="playAudio('./audio/bezek.mp3', this)">האזינו לפרסומת</button>
+            <audio class="audio-player" controls></audio>
+        </div>
+        <div class="ad">
+            <h2>תור פלוס</h2>
+            <p>פרסומת מלאת אנרגיה ללקוחות שאוהבים לטייל בעולם.</p>
+            <button onclick="playAudio('./audio/tourplus.mp3', this)">האזינו לפרסומת</button>
+            <audio class="audio-player" controls></audio>
+        </div>
+    </div>
+    <footer>
+        <p>עטרה - קריאייטיב שמדבר!</p>
+    </footer>
+    <script>
+        function playAudio(url, button) {
+            const audioPlayers = document.querySelectorAll('.audio-player');
+            audioPlayers.forEach(player => {
+                player.pause();
+                player.style.display = 'none';
+                player.src = '';
+            });
+            const audioPlayer = button.nextElementSibling;
+            audioPlayer.src = url;
+            audioPlayer.style.display = 'block';
+            audioPlayer.play();
+        }
+    </script>
+</body>
+</html>
